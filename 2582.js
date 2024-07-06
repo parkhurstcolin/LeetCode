@@ -12,6 +12,9 @@ var passThePillow = function (n, time) {
 		} else {
 			person--;
 			reversed = true;
+			if ((person = 1)) {
+				reversed = false;
+			}
 		}
 		time--;
 	}
