@@ -4,19 +4,6 @@
  * @return {number}
  */
 var passThePillow = function (n, time) {
-	let person = 1;
-	let reversed = false;
-	while (time > 0) {
-		if (person < n && !reversed) {
-			person++;
-		} else {
-			person--;
-			reversed = true;
-			if ((person = 1)) {
-				reversed = false;
-			}
-		}
-		time--;
-	}
-	return person;
+	let chunks = Math.floor(time / (n - 1));
+	return chunks % 2 === 0 ? (time % (n - 1)) + 1 : n - (time % (n - 1));
 };
