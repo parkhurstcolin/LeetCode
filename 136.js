@@ -3,18 +3,20 @@
  * @return {number}
  */
 var singleNumber = function (nums) {
-	let x = 0;
-	let broken = false;
+  let x = 0;
+	let y = 1;
+  let broken = false;
 	while (x < nums.length) {
-		for (let y = 1; y < nums.length; y++) {
-			if (nums[x] === nums[y]) {
+		while (y < nums.length) {
+			if (nums[x] === nums[y] && x !== y) {
 				broken = true;
 			}
+			y++;
 		}
-		y = 1;
 		if (!broken) return nums[x];
 		broken = false;
 		x++;
+		y = 0;
 	}
 	return nums[x - 1];
 };
