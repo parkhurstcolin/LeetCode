@@ -14,8 +14,8 @@
 function traverseRoot(root, res) {
 	if (root == null) return;
 	else res.push(root.val);
-	traverseRoot(root.left, res);
 	traverseRoot(root.right, res);
+	traverseRoot(root.left, res);
 }
 
 var postorderTraversal = function (root) {
