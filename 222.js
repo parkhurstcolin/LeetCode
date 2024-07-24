@@ -10,4 +10,23 @@
  * @param {TreeNode} root
  * @return {number}
  */
-var countNodes = function (root) {};
+var countNodes = function (root) {
+	const left = (node) => {
+		if (!node) return 0;
+		return left(node.left) + 1;
+	};
+	const right = (node) => {
+		if (!node) return 0;
+		return right(node.right) + 1;
+	};
+
+	const trans = (node) => {
+		let lLen = left(node);
+		let rLen = right(node);
+		if (lLen == rLen) {
+			return Math.pow(2, lLen) - 1;
+		}
+		return trans(node.left) + trans(node.right) + 1;
+	};
+	return trans(root);
+};
