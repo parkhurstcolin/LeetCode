@@ -13,25 +13,19 @@
 
 var getMinimumDifference = function (root) {
 	var arr = [];
+	var diff = Infinity;
+
 	function traverse(node) {
-		if (!node) {
-			return;
-		}
+		if (!node) return;
+		traverse(node.left);
 		arr.push(node.val);
 		traverse(node.right);
-		traverse(node.left);
 	}
 	traverse(root);
-	var diff = Infinity;
-	for (let i = 0; i < arr.length; i++) {
-		for (let j = 0; j < arr.length; j++) {
-			if (i !== j) {
-				m = arr[i] - arr[j];
-				if (m >= 0) {
-					diff = Math.min(diff, m);
-				}
-			}
-		}
+
+	for (let i = 1; i < arr.length; i++) {
+		if (arr[i] - arr[i - 1] < diff) diff = arr[i] - arr[i - 1];
 	}
+
 	return diff;
 };
