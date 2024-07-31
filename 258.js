@@ -3,7 +3,7 @@
  * @return {number}
  */
 var addDigits = function (num) {
-	if (num < 9) return num;
+	if (num <= 9) return num;
 	var n = 0;
 	let val = num.toString().split("");
 	while (val.length > 1) {
@@ -14,4 +14,4 @@ var addDigits = function (num) {
 		val = n.toString().split("");
 	}
 	return n;
-};
+}
