@@ -9,6 +9,6 @@ var constructRectangle = function (area) {
 		w = area / l;
 		if (!Number.isInteger(w)) l++;
 	}
-	if (l == 1) return [w, l];
+	if (l < w) return [w, l];
 	return [l, w];
 };
