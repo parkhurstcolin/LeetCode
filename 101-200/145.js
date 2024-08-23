@@ -10,34 +10,17 @@
  * @param {TreeNode} root
  * @return {number[]}
  */
-
-function traverseRoot(root, res) {
-	if (root == null) return;
-	else res.push(root.val);
-	traverseRoot(root.right, res);
-	traverseRoot(root.left, res);
-}
-
 var postorderTraversal = function (root) {
-	let res = [];
-	let revRes = [];
-	traverseRoot(root, res);
-	for (let y = res.length - 1; y >= 0; y--) {
-		revRes.push(res[y]);
-	}
-	return revRes;
-};
+	if (root == null) return [];
+	let postorder = [];
 
-/**
-function preOrder (root, res) {
-  if(root == null) return;
-  else res.push(root.val);
-  preOrder(root.left, res);
-  preOrder(root.right, res);
+	const traverse = (node) => {
+		if (node == null) return;
+		traverse(node.left);
+		traverse(node.right);
+		postorder.push(node.val);
+	};
+	traverse(root);
+
+	return postorder;
 };
-var preorderTraversal = function(root) {
-  let res = [];
-  preOrder(root, res);
-  return res;
-};
-*/
