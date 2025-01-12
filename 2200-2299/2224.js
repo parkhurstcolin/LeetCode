@@ -5,23 +5,24 @@
  */
 
 var convertTime = function (current, correct) {
+  let operations = 0;
   current = current.split(":");
   correct = correct.split(":");
-  let operations = 0;
-  let goal = Number(Number(correct[0]) * 60) + Number(correct[1]);
-  let time = Number(Number(current[0]) * 60) + Number(current[1]);
-  while (time != goal) {
-    if (time + 60 <= goal) {
-      time += 60;
+  let HH = Number(correct[0] * 60) - Number(current[0] * 60);
+  let MM = Number(correct[1]) - Number(current[1]);
+  let num = HH + MM;
+  while (num != 0) {
+    if (num >= 60) {
+      num -= 60;
       operations++;
-    } else if (time + 15 <= goal) {
-      time += 15;
+    } else if (num >= 15) {
+      num -= 15;
       operations++;
-    } else if (time + 5 <= goal) {
-      time += 5;
+    } else if (num >= 5) {
+      num -= 5;
       operations++;
-    } else if (time + 1 <= goal) {
-      time += 1;
+    } else if (num >= 1) {
+      num -= 1;
       operations++;
     }
   }
