@@ -4,16 +4,15 @@
  * @return {string}
  */
 var removeDigit = function (number, digit) {
-  number = number.split("");
-  let num = number;
+  let num = number.split("");
   let n = "";
   let store = "";
-  for (let y = 0; y < num.length; y++) {
+  for (let y = 0; y < num.length + 1; y++) {
     if (num[y] == digit) {
       num[y] = "";
       store = num.join("");
-      if (n < store) n = store;
-      num = number;
+      if (Number(n) < Number(store)) n = store;
+      num = number.split("");
     }
   }
   return n;
