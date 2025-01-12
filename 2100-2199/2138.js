@@ -12,7 +12,7 @@ var divideString = function (s, k, fill) {
     let x = k;
     while (x != 0) {
       if (s.length != 0) word += s.shift();
-      else word += "x";
+      else word += fill;
       x--;
     }
     store.push(word);
