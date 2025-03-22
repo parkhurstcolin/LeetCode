@@ -3,18 +3,20 @@
  * @param {number} target
  * @return {number}
  */
-var searchInsert = function(nums, target) {
-    for(let y = 0; y < nums.length; y++){
-        if(nums[y] >= target){
-            return y;
-        }
+var searchInsert = function (nums, target) {
+  function binarySearch(n, x) {
+    let l = 0,
+      r = n.length - 1;
+    let m = l + Math.floor((r - l) / 2);
+    while (l <= r) {
+      m = l + Math.floor((r - l) / 2);
+      if (n[m] === x) return m;
+      else if (n[m] < x) l = m + 1;
+      else r = m - 1;
     }
-    return nums.length
+    return m;
+  }
+  let i = binarySearch(nums, target);
+  if (nums[i] < target) return i + 1;
+  return i;
 };
-
-/*
-    1. Create a for loop to run through nums[]
-        a. Check if nums[y] >= target
-            i. Return y
-    2. Return nums.length
-*/
