@@ -5,13 +5,11 @@ function binarySearch (n, x) {
         // Find the mid index
         let m = l + Math.floor((r - l) / 2);
         // If element is present at m, return True
-        if (arr[m] === x) return true;
-        // Else look in left or 
-        else if (arr[m] < x)
-            l = m + 1;
+        if (n[m] === x) return true;
+        // Else look in left or
+        else if (n[m] < x) l = m + 1;
         // right half accordingly
-        else
-            r = m - 1;
+        else r = m - 1;
     }
     return false;
 }
