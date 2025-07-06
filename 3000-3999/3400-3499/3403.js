@@ -1,3 +1,8 @@
+  /**
+ * @param {string} word
+ * @param {number} numFriends
+ * @return {string}
+ */
 const answerString = (word, numFriends, res = '') => {
     if (numFriends === 1) return word;
 
